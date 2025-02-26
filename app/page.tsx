@@ -1,7 +1,11 @@
+"use client"
+
 import Image from 'next/image'
 import styles from './page.module.css'
-
+// import { useCount } from '@/context'
+import { dataStore } from '@/store/dataStore'
 export default function Home() {
+  const { inc } = dataStore()
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -17,6 +21,11 @@ export default function Home() {
           height={38}
           priority
         />
+      <button
+        onClick ={() => inc()}
+        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer'>
+          Count ++
+      </button>
       </main>
       <footer className={styles.footer}>
         <a
